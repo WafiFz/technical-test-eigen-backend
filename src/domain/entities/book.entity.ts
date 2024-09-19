@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 import { BookCode } from '../value-objects/book-code.vo';
 
 @Entity()
@@ -10,7 +10,10 @@ export class Book {
     this.stock = stock;
   }
   
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
   code: string;
 
   @Column()

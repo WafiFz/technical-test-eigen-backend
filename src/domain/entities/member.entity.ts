@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 import { MemberCode } from '../value-objects/member-code.vo';
 
 @Entity()
@@ -8,7 +8,10 @@ export class Member {
     this.name = name;
   }
 
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
   code: string;
 
   @Column()
