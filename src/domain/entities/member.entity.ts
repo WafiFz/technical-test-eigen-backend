@@ -3,24 +3,16 @@ import { MemberCode } from '../value-objects/member-code.vo';
 
 @Entity()
 export class Member {
-  constructor(code: MemberCode, name: string) {
-    this.code = code.value;
-    this.name = name;
-  }
-
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
-  @Column()
+  @PrimaryColumn()
   code: string;
 
   @Column()
   name: string;
 
-  @Column({ default: false })
+  @Column({ name: 'is_penalized', default: false })
   isPenalized: boolean;
 
-  @Column({ nullable: true })
+  @Column({ name: 'penalty_end_date', nullable: true })
   penaltyEndDate: Date;
 
   penalize(days: number) {

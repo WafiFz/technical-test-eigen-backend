@@ -10,12 +10,6 @@ import { Member } from './member.entity';
 
 @Entity()
 export class Borrow {
-  constructor(book: Book, member: Member) {
-    this.book = book;
-    this.member = member;
-    this.borrowDate = new Date();
-  }
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -27,10 +21,10 @@ export class Borrow {
   @JoinColumn({ name: 'memberCode', referencedColumnName: 'code' })
   member: Member;
 
-  @Column()
+  @Column({ name: 'borrow_date' })
   borrowDate: Date;
 
-  @Column({ nullable: true })
+  @Column({ name: 'return_date', nullable: true })
   returnDate: Date;
 
   return() {

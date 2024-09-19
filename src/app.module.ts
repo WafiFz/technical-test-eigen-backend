@@ -5,7 +5,9 @@ import { databaseConfig } from './infrastructure/database/database.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRootAsync(databaseConfig),
     TypeOrmModule.forFeature([]),
   ],
