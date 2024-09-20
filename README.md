@@ -22,7 +22,17 @@ Check out the live deployment of this project:
 
 Backend API for the technical test of the company Eigen.
 
-## Project setup
+## ERD
+
+![image](https://github.com/user-attachments/assets/2765f2cf-af5f-4d52-a4e4-2042a3c1d5a0)
+
+## Screenshot Unit Test
+
+![image](https://github.com/user-attachments/assets/144b9692-1b4b-4946-8177-9e2d0f8fa07e)
+
+## Project setup on local
+
+Create a `.env` file like `.env.example` and fill in the required environment variables.
 
 ```bash
 $ npm install
@@ -48,9 +58,16 @@ $ npm run start:prod
 $ npm run test
 ```
 
-## ERD
+## 🐳 Docker Setup with Cloud Database
 
-![image](https://github.com/user-attachments/assets/2765f2cf-af5f-4d52-a4e4-2042a3c1d5a0)
+1. Create a `.env` file like `.env.example` and fill in the required environment variables.
+2. Build and run the Docker container:
 
-## Screenshot Unit Test
-![image](https://github.com/user-attachments/assets/144b9692-1b4b-4946-8177-9e2d0f8fa07e)
+```bash
+$ docker-compose up -d
+```
+
+##  🔗 API Documentation Local
+```bash
+http://localhost:3000/docs
+```
