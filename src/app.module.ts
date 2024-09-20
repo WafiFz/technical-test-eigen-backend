@@ -14,6 +14,7 @@ import { BorrowBookUseCase } from './application/use-cases/borrow-book.use-case'
 import { ReturnBookUseCase } from './application/use-cases/return-book.use-case';
 import { CheckBooksUseCase } from './application/use-cases/check-books.use-case';
 import { CheckMembersUseCase } from './application/use-cases/check-members.use-case';
+import { RootController } from './presentation/controllers/root.controller';
 
 @Module({
   imports: [
@@ -21,13 +22,9 @@ import { CheckMembersUseCase } from './application/use-cases/check-members.use-c
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync(databaseConfig),
-    TypeOrmModule.forFeature([
-      Book,
-      Member,
-      Borrow,
-    ]),
+    TypeOrmModule.forFeature([Book, Member, Borrow]),
   ],
-  controllers: [LibraryController],
+  controllers: [RootController, LibraryController],
   providers: [
     LibraryService,
     BookRepository,
