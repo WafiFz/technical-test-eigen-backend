@@ -23,7 +23,7 @@ describe('CheckBooksUseCase', () => {
     libraryService = module.get(LibraryService);
   });
 
-  describe('execute', () => {
+  describe('', () => {
     it('should show all existing books and quantities', async () => {
       const expectedBooks = [
         { code: 'BK-001', title: 'Book 1', stock: 3, author: 'Author 1' },
