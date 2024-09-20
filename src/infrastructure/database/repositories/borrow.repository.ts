@@ -20,6 +20,10 @@ export class BorrowRepository {
     return this.repository.save(book);
   }
 
+  async findAll(): Promise<Borrow[]> {
+    return this.repository.find({ relations: ['book', 'member'] });
+  }
+
   async findBorrowedBook(member: Member, book: Book): Promise<Borrow | null> {
     return this.repository.findOne({
       where: { member, book, returnDate: null },
