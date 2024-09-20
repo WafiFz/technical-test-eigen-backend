@@ -1,12 +1,24 @@
 import { Repository } from 'typeorm';
 import { Member } from '../../../domain/entities/member.entity';
-import { MemberRepository as IMemberRepository } from '../../../domain/repositories/member.repository.interface';
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 
-export class MemberRepository
-  extends Repository<Member>
-  implements IMemberRepository
-{
+@Injectable()
+export class MemberRepository {
+  constructor(
+    @InjectRepository(Member)
+    private readonly repository: Repository<Member>,
+  ) {}
+
   async findByCode(code: string): Promise<Member | null> {
-    return await this.findOne({ where: { code } });
+    return await this.repository.findOne({ where: { code } });
+  }
+
+  async save(member: Member): Promise<Member> {
+    return this.repository.save(member);
+  }
+
+  async findAll(): Promise<Member[]> {
+    return this.repository.find();
   }
 }
