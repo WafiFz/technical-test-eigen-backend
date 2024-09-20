@@ -76,6 +76,11 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^@app/(.*)$": "<rootDir>/$1",
+      "^@use-cases/(.*)$": "<rootDir>/application/use-cases/$1",
+      "^@controllers/(.*)$": "<rootDir>/presentation/controllers/$1"
+    }
   }
 }

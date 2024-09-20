@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { databaseConfig } from './infrastructure/database/database.config';
-import { LibraryController } from './presentation/controllers/library.controller';
+import { LibraryController } from './presentation/library/library.controller';
 import { LibraryService } from './domain/services/library.service';
 import { Book } from './domain/entities/book.entity';
 import { Member } from './domain/entities/member.entity';
@@ -14,7 +14,7 @@ import { BorrowBookUseCase } from './application/use-cases/borrow-book.use-case'
 import { ReturnBookUseCase } from './application/use-cases/return-book.use-case';
 import { CheckBooksUseCase } from './application/use-cases/check-books.use-case';
 import { CheckMembersUseCase } from './application/use-cases/check-members.use-case';
-import { RootController } from './presentation/controllers/root.controller';
+import { RootController } from './presentation/root/root.controller';
 
 @Module({
   imports: [

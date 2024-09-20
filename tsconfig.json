@@ -11,6 +11,11 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@app/*": ["src/*"],
+      "@use-cases/*": ["src/application/use-cases/*"],
+      "@controllers/*": ["src/presentation/root/*"]
+    }
   }
 }

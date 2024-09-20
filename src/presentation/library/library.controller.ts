@@ -18,8 +18,8 @@ import { BorrowBookUseCase } from '../../application/use-cases/borrow-book.use-c
 import { ReturnBookUseCase } from '../../application/use-cases/return-book.use-case';
 import { CheckBooksUseCase } from '../../application/use-cases/check-books.use-case';
 import { CheckMembersUseCase } from '../../application/use-cases/check-members.use-case';
-import { BorrowBookDto } from 'src/application/dtos/borrow-book.dto';
-import { ReturnBookDto } from 'src/application/dtos/return-book.dto';
+import { BorrowBookDto } from '../../application/dtos/borrow-book.dto';
+import { ReturnBookDto } from '../../application/dtos/return-book.dto';
 
 @ApiTags('Library')
 @Controller('library')
@@ -69,7 +69,6 @@ export class LibraryController {
   @ApiResponse({ status: 400, description: 'Bad request.' })
   async borrowBook(@Body() borrowBookDto: BorrowBookDto) {
     try {
-        console.log('Received request to borrow book:', borrowBookDto);
       return await this.borrowBookUseCase.execute(
         borrowBookDto.memberCode,
         borrowBookDto.bookCode,
