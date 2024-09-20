@@ -69,6 +69,7 @@ export class LibraryController {
   @ApiResponse({ status: 400, description: 'Bad request.' })
   async borrowBook(@Body() borrowBookDto: BorrowBookDto) {
     try {
+        console.log('Received request to borrow book:', borrowBookDto);
       return await this.borrowBookUseCase.execute(
         borrowBookDto.memberCode,
         borrowBookDto.bookCode,
